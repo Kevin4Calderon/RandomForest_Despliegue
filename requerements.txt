@@ -8,7 +8,7 @@ fonttools==4.54.1
 itsdangerous==2.1.2
 Jinja2==3.1.4
 kiwisolver==1.4.7
-MarkupSafe==3.0.2
+MarkupSafe==3.1.2  # Versión actualizada para mayor compatibilidad
 matplotlib==3.8.0
 numpy==1.26.0
 opencv-python==4.8.1.78
@@ -20,3 +20,4 @@ python-dateutil==2.8.2
 scikit-learn==1.3.1
 six==1.16.0
 Werkzeug==3.0.4
+gunicorn==21.2.0
