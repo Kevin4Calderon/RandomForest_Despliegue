@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regresión con Random Forest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Modelo de Regresión con Random Forest</h1>
+
+        <!-- Vista previa de los primeros registros del dataset -->
+        <section>
+            <h2>Vista previa de los primeros 10 registros del dataset</h2>
+            <div class="table-container">
+                {{ data_preview | safe }}
+            </div>
+        </section>
+
+        <!-- Comparación entre modelos con y sin preparación de datos -->
+        <section>
+            <h2>Comparación entre Escalado y sin Escalar</h2>
+            <p><strong>f1_score SIN preparación:</strong> 0.9812539406589775</p>
+            <p><strong>f1_score CON preparación:</strong> 0.9811864245262409</p>
+        </section>
+
+        <!-- Resultados del modelo y gráfica de comparación de predicciones -->
+        {% if mse and r2 %}
+        <section class="results">
+            <h2>Resultados del Modelo</h2>
+            <p><strong>Error Cuadrático Medio (MSE):</strong> {{ mse }}</p>
+            <p><strong>R²:</strong> {{ r2 }}</p>
+        </section>
+
+        <section class="plot">
+            <h2>Gráfica de Predicciones vs Real</h2>
+            <img src="data:image/png;base64,{{ plot_url }}" alt="Gráfica de Predicciones vs Real" class="img-fluid">
+        </section>
+        {% endif %}
+    </div>
+</body>
+</html>
