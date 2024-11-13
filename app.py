@@ -14,11 +14,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # Cargar el dataset y seleccionar las primeras 10 filas
-    try:
-        df = pd.read_csv('DataSetAndroid/reducido.csv')
-        data_preview = df.head(10).to_html(classes='table table-striped')
-    except FileNotFoundError:
-        data_preview = "<p>Error: el archivo 'reducido.csv' no se encuentra.</p>"
+    df = pd.read_csv('DataSetAndroid/reducido.csv')
+    data_preview = df.head(10).to_html(classes='table table-striped')
 
     # Simulación de datos para demostración
     data = {
@@ -68,6 +65,6 @@ def index():
     # Renderizar la plantilla con los resultados y la vista previa de datos
     return render_template('index.html', mse=mse, r2=r2, plot_url=plot_url, data_preview=data_preview)
 
-# En Render, configura el punto de entrada como: gunicorn app:app --bind 0.0.0.0:$PORT
-# No necesitas ejecutar `app.run()` aquí, ya que Gunicorn manejará esto en producción.
-
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
