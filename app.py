@@ -8,7 +8,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 import io
 import base64
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/')
 def index():
@@ -64,5 +64,5 @@ def index():
     # Renderizar la plantilla con los resultados y la vista previa de datos
     return render_template('index.html', mse=mse, r2=r2, plot_url=plot_url, data_preview=data_preview)
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)
