@@ -65,4 +65,5 @@ def index():
     return render_template('index.html', mse=mse, r2=r2, plot_url=plot_url, data_preview=data_preview)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port, debug=True)
