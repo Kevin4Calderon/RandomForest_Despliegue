@@ -8,7 +8,7 @@ fonttools==4.54.1
 itsdangerous==2.1.2
 Jinja2==3.1.4
 kiwisolver==1.4.7
-MarkupSafe==3.1.2  # Versión actualizada para mayor compatibilidad
+MarkupSafe==2.1.2  # Versión estable alternativa
 matplotlib==3.8.0
 numpy==1.26.0
 opencv-python==4.8.1.78
