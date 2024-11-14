@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -7,6 +6,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 import io
+import os
 import base64
 
 app = Flask(__name__)
@@ -64,7 +64,7 @@ def index():
 
     # Renderizar la plantilla con los resultados y la vista previa de datos
     return render_template('index.html', mse=mse, r2=r2, plot_url=plot_url, data_preview=data_preview)
-
+    
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
