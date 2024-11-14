@@ -67,4 +67,9 @@ def index():
 
     # Renderizar la plantilla con los resultados y la vista previa de datos
     return render_template('index.html', mse=mse, r2=r2, plot_url=plot_url, data_preview=data_preview)
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
+
     
